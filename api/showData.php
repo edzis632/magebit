@@ -1,8 +1,5 @@
 <?php 
-$host = "localhost"; 
-$user = "root"; 
-$password = ""; 
-$dbname = "magebit"; 
+include 'DBConfig.php';
 
 $conn = mysqli_connect($host, $user, $password,$dbname);
 
