@@ -1,0 +1,55 @@
+/************************************************
+
+Stylesheet: Custom mixins Stylesheet
+
+*************************************************/
+
+$rem-base: 16px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rems($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value / strip-unit($rem-base)}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+@mixin background-image($name, $type) {
+  background-image: url('./images/#{$name}.#{$type}');
+  background-repeat: no-repeat;
+}
+
+@mixin border ($border-color: var(--color-border), $border-width: 1) {
+  @include rems (border-width, $border-width);
+  border-style: solid;
+  border-color: $border-color;
+}
+
+// Sizing stuff
+@mixin size($width, $height: $width) {
+  @include rems (width, $width);
+  @include rems (height, $height);
+}

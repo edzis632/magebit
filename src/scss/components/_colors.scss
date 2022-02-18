@@ -1,0 +1,37 @@
+/************************************************
+
+Stylesheet: Color Stylesheet
+
+*************************************************/
+
+$background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg) 100%);
+
+
+:root {
+
+	// Primary colors
+	--color-primary: #4066A5;
+	--color-secondary: #131821;
+	--color-text: #6A707B;
+	--color-border: #E3E3E4;
+	--color-bg: #F2F5FA;
+	--color-white: #fff;
+	--link-pressed: #233759;
+	--color-error: #B80808;
+
+	/* Icon colors */
+	--fb: #4267B2;
+	--ig: #C13584;
+	--twtr: #1DA1F2;
+	--yt: #FF0000;
+
+	--fb-pressed: #2F4A80;
+	--ig-pressed: #8F2762;
+	--twtr-pressed: #177FBF;
+	--yt-pressed: #CC0000;
+
+	/* Shadows */
+	--shadow-primary: 0px 20px 40px 0px #1318214D;
+	--shadow-secondary: 0px 30px 40px 0px #1318214D;
+
+}

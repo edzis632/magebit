@@ -1,0 +1,73 @@
+@mixin icon-hover ($hover-color, $focus-color) {
+
+	&:hover {
+		background: $hover-color;
+		border-color: $hover-color;
+		box-shadow: var(--shadow-secondary);
+	}
+
+	&:focus {
+		background: $focus-color;
+		border-color: $focus-color;
+		box-shadow: var(--shadow-secondary);
+	}
+}
+
+.social__section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include rems (padding-top, 50);
+	position: relative;
+
+	@include breakpoint ('small') {
+		@include rems (padding-top, 20);
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		@include rems (height, 1);
+		background: var(--color-border);
+		top: 0;
+	}
+
+	.section__icon {
+		@include border();
+		border-radius: 50%;
+		@include size (46);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include rems (margin, 0, 10);
+		transition: all 0.5s;
+
+		&:hover, &:focus {
+
+			svg {
+
+				path {
+					fill: var(--color-white);
+					opacity: 1;
+				}
+			}
+		}
+
+		&--facebook {
+			@include icon-hover (var(--fb), var(--fb-pressed));
+		}		
+
+		&--instagram {
+			@include icon-hover (var(--ig), var(--ig-pressed));
+		}		
+
+		&--twitter {
+			@include icon-hover (var(--twtr), var(--twtr-pressed));
+		}		
+
+		&--youtube {
+			@include icon-hover (var(--yt), var(--yt-pressed));
+		}
+	}
+}

@@ -1,0 +1,103 @@
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  font-family: 'arial';
+}
+
+
+img {
+	display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+p, label {
+	color: var(--color-text);
+	@include rems (font-size, 16);
+
+	@include breakpoint ('small') {
+		@include rems (font-size, 14);
+	}
+}
+
+a {
+	color: var(--color-secondary);
+	@include rems (font-size, 16);
+	@include rems (line-height, 28);
+	transition: color 0.5s;
+
+	&:hover {
+		color: var(--color-primary);
+	}
+
+	&:focus {
+		color: var(--link-pressed);
+	}
+
+	@include breakpoint ('small') {
+		@include rems (font-size, 14);
+	}
+}
+
+h1 {
+	@include rems (margin, 0, 0, 20);
+	@include rems (font-size, 32);
+	font-family: 'georgia';
+
+	@include breakpoint ('small') {
+		@include rems (font-size, 24);
+	}
+}
+
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.checkbox {
+	@include rems (width, 26);
+	@include rems (height, 26);
+	background: var(--color-white);
+	@include border();
+	@include rems (border-radius, 3);
+	@include rems (margin-right, 15);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&--active {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+	}
+}
+
+.global__margin {
+	@include rems (margin-bottom, 50);
+
+	@include breakpoint ('small') {
+		@include rems (margin, 0, 0, 20);
+	}
+}
+
+.container {
+	display: flex;
+}

@@ -1,0 +1,27 @@
+table {
+  border-collapse: collapse;
+
+thead {
+    background-color: #333;
+    color: white;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2%;
+}
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.table__section {
+    @include rems (max-width, 1200);
+    margin: 0 auto;
+}
+
+.table__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
